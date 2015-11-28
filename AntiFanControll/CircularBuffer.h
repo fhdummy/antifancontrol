@@ -8,15 +8,14 @@
 #ifndef CIRCULARBUFFER_H_
 #define CIRCULARBUFFER_H_
 
-struct buffer {
-	unsigned char volatile head_pos;
-	unsigned char volatile empty_pos;
-	unsigned char volatile length;
-	char volatile buffer[];
-};
+#define CIRCULARBUFFERSIZE 20
 
-static struct buffer txBuffer;
+extern unsigned char *pRead;
+extern unsigned char *pWrite;
+extern unsigned char circularBuffer[CIRCULARBUFFERSIZE];
+extern int bufferFreeLength;
 
-static void initBuffer();
+void initCircularBuffer();
+int sendUartString(unsigned char *);
 
 #endif 
