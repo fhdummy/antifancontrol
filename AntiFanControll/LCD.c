@@ -96,3 +96,16 @@ void writeCharArray(char *commands,int length) {
 	}
 }
 
+void writeToDisplay(char* s)
+{
+	writeCharArray(s, sizeof(s)/sizeof(s[0]));
+}
+
+void writeIntToDisplay(int value)
+{
+	char tempString[15];
+	sprintf(tempString,"%15u", value);
+
+	writeCharArray(tempString, sizeof(tempString)/sizeof(tempString[0]));
+}
+

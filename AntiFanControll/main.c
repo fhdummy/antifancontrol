@@ -9,20 +9,16 @@
 #include <util/delay.h>
 #include "barmeter.h"
 #include "CircularBuffer.h"
+#include "LCD.h"
 #include <avr/interrupt.h>
 
 #define BAUD 9600
-//#define MYUBRR F_CPU/16/BAUD-1					//RICHTIG??????????
 
 int current;
 int length;
-//unsigned char* uartString;
-//int uartStringEmpty = 1;
 
 unsigned short actualFanSpeedMeasured = 0;
 unsigned short potiValueMeasured = 0;
-
-
 
 void initRPM()
 {
@@ -98,19 +94,6 @@ void initUART()		//S.161
 	initCircularBuffer();
 }
 
-void writeToDisplay(char* s)
-{
-	writeCharArray(s, sizeof(s)/sizeof(s[0]));
-}
-
-void writeIntToDisplay(int value)
-{
-	char tempString[15];
-	sprintf(tempString,"%15u", value);	
-
-	writeCharArray(tempString, sizeof(tempString)/sizeof(tempString[0]));
-}
-
 int main(void)
 {
 	initBarMeter();
@@ -120,31 +103,32 @@ int main(void)
 	initADC();
 	initPWM2();
 	initCircularBuffer();
-	initUART();	
-	
+	initUART();		
 	sei();
 	
-	//RingBuffer buffer = RingBuffer_create(20);		//ka obs funktioniert
-	//writeToDisplay(":D");
+	setCursorToHome();
+	writeToDisplay(":D");
 	
-	sendUartString("Hallo");
+	char rpmString[5];
 	
     while(1)
     {
-		/*if(uartStringEmpty == 1){
-			initUartString("lol");
-			sendUartChar();
-		}*/
-		
 		setBarMeter(potiValueMeasured);
-		
 		readADC();
+		
+		int rpm = (60000000UL/((unsigned long)16*(unsigned long)actualFanSpeedMeasured));
+		
+		sprintf(rpmString,"%5u", rpm);
+		
+		sendUartString(rpmString);
+		sendUartString("\r\n");
+		
 		setCursorToHome();
-		writeIntToDisplay((60000000UL/((unsigned long)16*(unsigned long)actualFanSpeedMeasured)));	//Print RPM 
-		setCursor2Line();
-		writeIntToDisplay((potiValueMeasured*100)/255);	//Print Duty
-		setCursor2Line();
-		writeIntToDisplay(8 * (unsigned long)actualFanSpeedMeasured);	//Print pulse time
+		writeIntToDisplay(rpm);	//Print RPM 
+		//setCursor2Line();
+		//writeIntToDisplay((potiValueMeasured*100)/255);	//Print Duty
+		//setCursor2Line();
+		//writeIntToDisplay(8 * (unsigned long)actualFanSpeedMeasured);	//Print pulse time
 		OCR2 = potiValueMeasured;
 		_delay_ms(10);
     }

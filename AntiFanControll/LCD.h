@@ -21,6 +21,7 @@ void clearDisplay();
 void setCursorToHome();
 void shiftCursorRight();
 void setCursor2Line();
-
+void writeToDisplay(char*);
+void writeIntToDisplay(int);
 
 #endif /* INCFILE1_H_ */
