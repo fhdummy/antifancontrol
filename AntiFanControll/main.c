@@ -11,50 +11,15 @@
 #include <avr/interrupt.h>
 
 #define BAUD 9600
-#define MYUBRR F_CPU/16/BAUD-1					//RICHTIG??????????
-
-#define TX_BUFF_SIZE 20
-
-#define Q_INCR(x) x = x+1; if (x == TX_BUFF_SIZE) x = 0;
-#define UDRIE_on() UCSR0B = _BV(RXCIE0) | _BV(RXEN0) | _BV(TXEN0) | BIT(UDRIE0)
-#define UDRIE_off() UCSR0B = _BV(RXCIE0) | _BV(RXEN0) | _BV(TXEN0)
-
-unsigned short actualFanSpeedMeasured = 0;
-unsigned short potiValueMeasured = 0;
+//#define MYUBRR F_CPU/16/BAUD-1					//RICHTIG??????????
 
 int current;
 int length;
 unsigned char* uartString;
 int uartStringEmpty = 1;
 
-struct buffer {
-	unsigned char volatile head_pos;
-	unsigned char volatile empty_pos;
-	unsigned char volatile length;
-	char volatile buffer[TX_BUFF_SIZE];
-};
-
-static struct buffer txBuffer;
-
-static void initBuffer()
-{
-	txBuffer.head_pos=0;
-	txBuffer.empty_pos=0;
-	txBuffer.length=0;
-}
-
-void usart_send(char ch)
-{
-	unsigned char len;
-	
-	//otherwise check queue full
-	while ((len=txBuffer.length) == TX_BUFF_SIZE); // block while buffer is full
-	
-	//add ch to buffer
-	txBuffer.buffer[txBuffer.empty_pos] = ch;
-	Q_INCR(txBuffer.empty_pos);
-	txBuffer.length = len+1;
-}
+unsigned short actualFanSpeedMeasured = 0;
+unsigned short potiValueMeasured = 0;
 
 void initRPM()
 {
@@ -178,7 +143,6 @@ int main(void)
 	initADC();
 	initPWM2();
 	initUART();	
-	initBuffer();
 	
 	sei();
 	
@@ -217,17 +181,7 @@ ISR(INT0_vect)
 
 ISR(USART_UDRE_vect)	//UART has Transmitted
 {
-	//character transferred to shift register
-	//so UDR is now empty
-	//try to get char from tx buffer
-	if (txq.length != 0) {
-		//get char and send it
-		UDR0 = txq.buffer[txq.head_pos];
-		Q_INCR(txq.head_pos);
-		txq.length = txq.length-1;
-		} else {
-		UDRIE_off(); // switch off interrupt since no data
-	}
+	
 }
 
 
