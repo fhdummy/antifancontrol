@@ -122,26 +122,36 @@ int main(void)
 		
 		/* Convert integers to strings */
 		sprintf(rpmString,"%4u", rpm);
-		sprintf(timeString,"%5u", time);
 		
 		/* Print to display */
 		setCursorToHome();
 		writeCharArray(rpmString, 4);
-		writeCharArray(" RPM", 4);
+		writeCharArray("rpm |", 5);
+		sprintf(timeString,"%5u", time);
+		writeCharArray(timeString, 5);
+		writeCharArray("us", 2);
 		
 		setCursor2Line();
 		writeCharArray("Duty: ", 6);
 		sprintf(dutyString,"%3u", duty);
 		writeCharArray(dutyString, 3);
+		writeCharArray("%", 1);
 		
+		/* Write to USART */
+		sendUartString("\033", 1);
+		sendUartString("\143", 1);
 		
+		sendUartString(rpmString, 4);
+		sendUartString(" RPM | ", 7);
 		
-		//setCursor2Line();
-		//writeIntToDisplay((potiValueMeasured*100)/255);	//Print Duty
-		//setCursor2Line();
-		//writeIntToDisplay(8 * (unsigned long)actualFanSpeedMeasured);	//Print pulse time
+		sendUartString(timeString, 5);
+		sendUartString(" us\r\n", 5);
 		
-		_delay_ms(10);
+		sendUartString(dutyString, 3);
+		sendUartString("%\r\n",3);
+		sendUartString("\r\n",2);
+		
+		_delay_ms(100);
     }
 	
 	return 0;

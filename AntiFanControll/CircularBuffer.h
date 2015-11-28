@@ -8,7 +8,7 @@
 #ifndef CIRCULARBUFFER_H_
 #define CIRCULARBUFFER_H_
 
-#define CIRCULARBUFFERSIZE 20
+#define CIRCULARBUFFERSIZE 40
 
 extern unsigned char *pRead;
 extern unsigned char *pWrite;

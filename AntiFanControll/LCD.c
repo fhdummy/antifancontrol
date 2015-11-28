@@ -58,6 +58,8 @@ void initDisplay() {
 	writeCommand(0xe);
 	_delay_ms(3);*/
 	
+	writeCommand(0x0C);
+	
 	clearDisplay();
 }
 
