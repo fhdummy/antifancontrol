@@ -86,45 +86,17 @@ void initPWM2()
 }
 
 void initUART()		//S.161
-{
-	// Set frame format: 8data, 1stop bit
-	
-	//UBRRH = (uint8_t) (MYUBRR>>8);
-	//UBRRL = (uint8_t) MYUBRR;
-	
-	UBRRL = 51;
+{	
 	UBRRH = 0;
+	UBRRL = 51;
 	
-	UCSRB = ((1<<TXEN) | (1<<TXCIE));								// Enable transmitter & interrupt on finish,     (1<<RXEN) for receiver
-	//UCSRB |= (1<<UCSZ1) | (1<<UCSZ0);								//UCSZ1,0 set to 1 UCSZ2 set to 0 for 8bit data
+	UCSRB = ((1<<TXEN));									//UCSZ1,0 set to 1 UCSZ2 set to 0 for 8bit data
 	
 	UCSRC = ((1<<URSEL) | (1<<UCSZ0) | (1<<UCSZ1));	//Asynchron 8N1
-	UCSRB |= (1 << UDRIE);
-	
-	//UCSRC &= ~(1<<USBS);											//set 1 stop bit    !! strange error when active
-	//UCSRC &= ~((1<<UPM1) | (1<<UPM0) | (1<<UMSEL));					//no parity, UMSEL for async operation
-}
+	UCSRB |= (1 << UDRIE);				//no parity, UMSEL for async operation
 
-/*void initUartString(char* s)
-{
-	uartString = s;
-	length = sizeof(s)/sizeof(s[0]);
-	current = 0;
+	initCircularBuffer();
 }
-
-void sendUartChar(unsigned char data)
-{
-	while (!(UCSRA & (1<<UDRE)));		//wartet, bis senden möglich ist
-	
-	UDR = data;
-}
-
-void sendUartCharString(const char *str)
-{
-	int a=0;
-	while(str[a]!='\0')
-		sendUartChar(str[a++]);
-}*/
 
 void writeToDisplay(char* s)
 {
@@ -147,8 +119,8 @@ int main(void)
 	initTimer1();
 	initADC();
 	initPWM2();
-	initUART();	
 	initCircularBuffer();
+	initUART();	
 	
 	sei();
 	

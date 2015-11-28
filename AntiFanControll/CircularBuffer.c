@@ -15,7 +15,7 @@ int bufferFreeLength;
 
 int sendUartString(unsigned char *pData)
 {
-	int length = sizeof(pData) / sizeof(unsigned char);
+	int length = strlen(pData);
 	
 	if(pWrite >= pRead)
 	{
