@@ -619,19 +619,19 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xeb5
+.debug_info     0x00000000      0xea2
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xad barmeter.o
  .debug_info    0x000000ad      0x138 CircularBuffer.o
  .debug_info    0x000001e5      0x625 LCD.o
- .debug_info    0x0000080a      0x6ab main.o
+ .debug_info    0x0000080a      0x698 main.o
 
-.debug_abbrev   0x00000000      0x4f0
+.debug_abbrev   0x00000000      0x4dd
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x7a barmeter.o
  .debug_abbrev  0x0000007a       0xcd CircularBuffer.o
  .debug_abbrev  0x00000147      0x192 LCD.o
- .debug_abbrev  0x000002d9      0x217 main.o
+ .debug_abbrev  0x000002d9      0x204 main.o
 
 .debug_line     0x00000000      0x668
  *(.debug_line .debug_line.* .debug_line_end)

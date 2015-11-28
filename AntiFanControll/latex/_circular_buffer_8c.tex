@@ -1,0 +1,86 @@
+\hypertarget{_circular_buffer_8c}{
+\section{\-Circular\-Buffer.c \-File \-Reference}
+\label{_circular_buffer_8c}\index{\-Circular\-Buffer.\-c@{\-Circular\-Buffer.\-c}}
+}
+
+
+\-Circular\-Buffer functions.  
+
+
+{\ttfamily \#include $<$avr/io.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Circular\-Buffer.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_circular_buffer_8c_afc6c46ed6f92c0bbd2ffd7a41c6ed210}{send\-Uart\-String} (unsigned char $\ast$p\-Data, int length)
+\begin{DoxyCompactList}\small\item\em \-Puts a string into the circular buffer. \end{DoxyCompactList}\item 
+void \hyperlink{_circular_buffer_8c_a97f85f4ba10cf783dfcf61c947f40eee}{init\-Circular\-Buffer} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize the circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_circular_buffer_8c_afa0797ae1d275420a9aa98f60a7e8855}{
+unsigned char $\ast$ \hyperlink{_circular_buffer_8c_afa0797ae1d275420a9aa98f60a7e8855}{p\-Read}}
+\label{_circular_buffer_8c_afa0797ae1d275420a9aa98f60a7e8855}
+
+\begin{DoxyCompactList}\small\item\em \-Pointer to the read element of the circular buffer. \end{DoxyCompactList}\item 
+\hypertarget{_circular_buffer_8c_ae216a2df68716d38b6a6e5b25cf8516d}{
+unsigned char $\ast$ \hyperlink{_circular_buffer_8c_ae216a2df68716d38b6a6e5b25cf8516d}{p\-Write}}
+\label{_circular_buffer_8c_ae216a2df68716d38b6a6e5b25cf8516d}
+
+\begin{DoxyCompactList}\small\item\em \-Pointer to the write element of the circular buffer. \end{DoxyCompactList}\item 
+\hypertarget{_circular_buffer_8c_a08d23bfa159c0c303dc2ba9748efe2ca}{
+unsigned char \hyperlink{_circular_buffer_8c_a08d23bfa159c0c303dc2ba9748efe2ca}{circular\-Buffer} \mbox{[}\-C\-I\-R\-C\-U\-L\-A\-R\-B\-U\-F\-F\-E\-R\-S\-I\-Z\-E\mbox{]}}
+\label{_circular_buffer_8c_a08d23bfa159c0c303dc2ba9748efe2ca}
+
+\begin{DoxyCompactList}\small\item\em \-Circular buffer of the size \-C\-I\-R\-C\-U\-L\-A\-R\-B\-U\-F\-F\-E\-R\-S\-I\-Z\-E, which is defined in \hyperlink{_circular_buffer_8h_source}{\-Circular\-Buffer.\-h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Circular\-Buffer functions. \-This module defines the functions for the circular buffer. 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{_circular_buffer_8c_a97f85f4ba10cf783dfcf61c947f40eee}{
+\index{\-Circular\-Buffer.\-c@{\-Circular\-Buffer.\-c}!init\-Circular\-Buffer@{init\-Circular\-Buffer}}
+\index{init\-Circular\-Buffer@{init\-Circular\-Buffer}!CircularBuffer.c@{\-Circular\-Buffer.\-c}}
+\subsubsection[{init\-Circular\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Circular\-Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_circular_buffer_8c_a97f85f4ba10cf783dfcf61c947f40eee}
+
+
+\-Initialize the circular buffer. 
+
+\-Sets p\-Read and p\-Write to the beginning of the circular buffer.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_circular_buffer_8c_afc6c46ed6f92c0bbd2ffd7a41c6ed210}{
+\index{\-Circular\-Buffer.\-c@{\-Circular\-Buffer.\-c}!send\-Uart\-String@{send\-Uart\-String}}
+\index{send\-Uart\-String@{send\-Uart\-String}!CircularBuffer.c@{\-Circular\-Buffer.\-c}}
+\subsubsection[{send\-Uart\-String}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Uart\-String (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\-Data, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}
+\label{_circular_buffer_8c_afc6c46ed6f92c0bbd2ffd7a41c6ed210}
+
+
+\-Puts a string into the circular buffer. 
+
+\-Takes the string and puts it into the buffer, when the buffer is big enough and there is enough space.
+
+int \hyperlink{_circular_buffer_8c_afc6c46ed6f92c0bbd2ffd7a41c6ed210}{send\-Uart\-String(unsigned char $\ast$p\-Data, int length)} 
+\begin{DoxyParams}{\-Parameters}
+{\em $\ast$p\-Data} & \-Data which is to send \\
+\hline
+{\em length} & \-Length of data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+int \-Return code of the main program. \-Codes other than zero signals an error. \-Return code of 1 indicates, that the string is too long for the buffer. 
+\end{DoxyReturn}

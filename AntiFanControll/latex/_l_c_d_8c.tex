@@ -1,0 +1,143 @@
+\hypertarget{_l_c_d_8c}{
+\section{\-L\-C\-D.c \-File \-Reference}
+\label{_l_c_d_8c}\index{\-L\-C\-D.\-c@{\-L\-C\-D.\-c}}
+}
+
+
+\-L\-C\-D \-Funktionen.  
+
+
+{\ttfamily \#include $<$avr/io.\-h$>$}\*
+{\ttfamily \#include $<$util/delay.\-h$>$}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_l_c_d_8c_a12bd412cbf94d511d168072f23006b3d}{
+void \hyperlink{_l_c_d_8c_a12bd412cbf94d511d168072f23006b3d}{toggle\-Enable} ()}
+\label{_l_c_d_8c_a12bd412cbf94d511d168072f23006b3d}
+
+\begin{DoxyCompactList}\small\item\em \-Sendet \-Enable \-Impuls ans \-Display. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_a0cbe7d268c95cc2733314a9f9728f333}{
+void \hyperlink{_l_c_d_8c_a0cbe7d268c95cc2733314a9f9728f333}{set\-R\-S} ()}
+\label{_l_c_d_8c_a0cbe7d268c95cc2733314a9f9728f333}
+
+\begin{DoxyCompactList}\small\item\em \-Setzt \-R\-S \-Pin des \-Displays. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_acf2e274bf9c9703919a5e01ae53a4957}{
+void \hyperlink{_l_c_d_8c_acf2e274bf9c9703919a5e01ae53a4957}{reset\-R\-S} ()}
+\label{_l_c_d_8c_acf2e274bf9c9703919a5e01ae53a4957}
+
+\begin{DoxyCompactList}\small\item\em \-Rücksetzt \-R\-S \-Pin des \-Displays. \end{DoxyCompactList}\item 
+void \hyperlink{_l_c_d_8c_a80f8c660f30dbb5b44dfbc2a09ef4059}{write4\-Bit} (char command)
+\begin{DoxyCompactList}\small\item\em \-Schreibt 4 \-Datenbit an das \-Display. \end{DoxyCompactList}\item 
+void \hyperlink{_l_c_d_8c_a34556f5f26a14e7f0c874fa4d1b058b2}{write\-Command} (char command)
+\begin{DoxyCompactList}\small\item\em \-Sendet ein \-Kommando an das \-Display. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_a1a9171e2595ab20c0d50a6b9ba243997}{
+void \hyperlink{_l_c_d_8c_a1a9171e2595ab20c0d50a6b9ba243997}{init\-Display} ()}
+\label{_l_c_d_8c_a1a9171e2595ab20c0d50a6b9ba243997}
+
+\begin{DoxyCompactList}\small\item\em \-Initialisiert das \-Display. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_afd47c36667da95c702aa330a1710d6c0}{
+void \hyperlink{_l_c_d_8c_afd47c36667da95c702aa330a1710d6c0}{set\-Cursor\-To\-Home} ()}
+\label{_l_c_d_8c_afd47c36667da95c702aa330a1710d6c0}
+
+\begin{DoxyCompactList}\small\item\em \-Setzt den \-Display \-Curser an die erste \-Spalte, erste \-Zeile. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_a7d1c42f0efe0f25d145532f65643b78e}{
+void \hyperlink{_l_c_d_8c_a7d1c42f0efe0f25d145532f65643b78e}{set\-Cursor2\-Line} ()}
+\label{_l_c_d_8c_a7d1c42f0efe0f25d145532f65643b78e}
+
+\begin{DoxyCompactList}\small\item\em \-Setzt den \-Display \-Curser an die erste \-Spalte, zweite \-Zeile. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_a1887f4d944c106e3d7765af3ea252890}{
+void \hyperlink{_l_c_d_8c_a1887f4d944c106e3d7765af3ea252890}{shift\-Cursor\-Right} ()}
+\label{_l_c_d_8c_a1887f4d944c106e3d7765af3ea252890}
+
+\begin{DoxyCompactList}\small\item\em \-Setzt den \-Display \-Curser um eins nach \-Rechts. \end{DoxyCompactList}\item 
+void \hyperlink{_l_c_d_8c_a9ff8f4e6c43c770710f91dcb6a6e24cc}{write\-Data} (char data)
+\begin{DoxyCompactList}\small\item\em \-Sendet ein \-Zeichen an das \-Display. \end{DoxyCompactList}\item 
+\hypertarget{_l_c_d_8c_afaa5f070126ac5184a648b484e7cf276}{
+void \hyperlink{_l_c_d_8c_afaa5f070126ac5184a648b484e7cf276}{clear\-Display} ()}
+\label{_l_c_d_8c_afaa5f070126ac5184a648b484e7cf276}
+
+\begin{DoxyCompactList}\small\item\em \-Löscht den \-Displayinhalt. \end{DoxyCompactList}\item 
+void \hyperlink{_l_c_d_8c_aaad328afb835ac04462d42b65b4b1a34}{write\-Char\-Array} (char $\ast$commands, int length)
+\begin{DoxyCompactList}\small\item\em \-Sendet ein \-Character \-Array an das \-Display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-L\-C\-D \-Funktionen. \-Dieses \-Modul definiert die \-Funktionen für das \-L\-C\-D \-Display. \-Autor\-: \-Marco \-Gruber 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{_l_c_d_8c_a80f8c660f30dbb5b44dfbc2a09ef4059}{
+\index{\-L\-C\-D.\-c@{\-L\-C\-D.\-c}!write4\-Bit@{write4\-Bit}}
+\index{write4\-Bit@{write4\-Bit}!LCD.c@{\-L\-C\-D.\-c}}
+\subsubsection[{write4\-Bit}]{\setlength{\rightskip}{0pt plus 5cm}void write4\-Bit (
+\begin{DoxyParamCaption}
+\item[{char}]{command}
+\end{DoxyParamCaption}
+)}}
+\label{_l_c_d_8c_a80f8c660f30dbb5b44dfbc2a09ef4059}
+
+
+\-Schreibt 4 \-Datenbit an das \-Display. 
+
+void \hyperlink{_l_c_d_8c_a80f8c660f30dbb5b44dfbc2a09ef4059}{write4\-Bit(char command)} 
+\begin{DoxyParams}{\-Parameters}
+{\em command} & 4 \-Bit an zu sendenden \-Daten. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_c_d_8c_aaad328afb835ac04462d42b65b4b1a34}{
+\index{\-L\-C\-D.\-c@{\-L\-C\-D.\-c}!write\-Char\-Array@{write\-Char\-Array}}
+\index{write\-Char\-Array@{write\-Char\-Array}!LCD.c@{\-L\-C\-D.\-c}}
+\subsubsection[{write\-Char\-Array}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Char\-Array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{commands, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}
+\label{_l_c_d_8c_aaad328afb835ac04462d42b65b4b1a34}
+
+
+\-Sendet ein \-Character \-Array an das \-Display. 
+
+\hyperlink{_l_c_d_8c_aaad328afb835ac04462d42b65b4b1a34}{write\-Char\-Array(char $\ast$commands,int length)} 
+\begin{DoxyParams}{\-Parameters}
+{\em commands} & \-Zeiger auf das \-Character \-Array \\
+\hline
+{\em length} & \-Länge des \-Character \-Arrays \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_c_d_8c_a34556f5f26a14e7f0c874fa4d1b058b2}{
+\index{\-L\-C\-D.\-c@{\-L\-C\-D.\-c}!write\-Command@{write\-Command}}
+\index{write\-Command@{write\-Command}!LCD.c@{\-L\-C\-D.\-c}}
+\subsubsection[{write\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Command (
+\begin{DoxyParamCaption}
+\item[{char}]{command}
+\end{DoxyParamCaption}
+)}}
+\label{_l_c_d_8c_a34556f5f26a14e7f0c874fa4d1b058b2}
+
+
+\-Sendet ein \-Kommando an das \-Display. 
+
+void \hyperlink{_l_c_d_8c_a34556f5f26a14e7f0c874fa4d1b058b2}{write\-Command(char command)} 
+\begin{DoxyParams}{\-Parameters}
+{\em command} & \-Zu sendendes \-Kommando in 8 \-Bit \-Form. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_c_d_8c_a9ff8f4e6c43c770710f91dcb6a6e24cc}{
+\index{\-L\-C\-D.\-c@{\-L\-C\-D.\-c}!write\-Data@{write\-Data}}
+\index{write\-Data@{write\-Data}!LCD.c@{\-L\-C\-D.\-c}}
+\subsubsection[{write\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Data (
+\begin{DoxyParamCaption}
+\item[{char}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{_l_c_d_8c_a9ff8f4e6c43c770710f91dcb6a6e24cc}
+
+
+\-Sendet ein \-Zeichen an das \-Display. 
+
+void \hyperlink{_l_c_d_8c_a9ff8f4e6c43c770710f91dcb6a6e24cc}{write\-Data(char data)} 
+\begin{DoxyParams}{\-Parameters}
+{\em data} & \-Zu sendendes \-Zeichen \\
+\hline
+\end{DoxyParams}

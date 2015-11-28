@@ -1,0 +1,217 @@
+\hypertarget{main_8c}{
+\section{main.c \-File \-Reference}
+\label{main_8c}\index{main.\-c@{main.\-c}}
+}
+
+
+\-Main module.  
+
+
+{\ttfamily \#include $<$avr/io.\-h$>$}\*
+{\ttfamily \#include $<$util/delay.\-h$>$}\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\*
+{\ttfamily \#include \char`\"{}barmeter.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Circular\-Buffer.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-L\-C\-D.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a3ce63e603bd2c199e32b3205f8765e29}{init\-R\-P\-M} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize \-I\-N\-T0 for \-R\-P\-M measurements. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_aeb10e95e8ade0a53d0aeac6f7751c631}{init\-Timer1} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize \-Timer 1 for \-R\-P\-M measurements. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_ab3166bd1ba3160d3bac85daddb12f947}{init\-A\-D\-C} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize \-A\-D\-C. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a63dd01341d3566ea779f7597d942a846}{read\-A\-D\-C} ()
+\begin{DoxyCompactList}\small\item\em \-Read value from \-A\-D\-C. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a05dcb7d6cd19ae3526e67f305ab099c7}{init\-P\-W\-M2} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize timer2 for \-P\-W\-M. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a4b46e2e6b871d0b0f138e61760b10fa2}{init\-U\-S\-A\-R\-T} ()
+\begin{DoxyCompactList}\small\item\em \-Initialize \-U\-S\-A\-R\-T interface. \end{DoxyCompactList}\item 
+int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\begin{DoxyCompactList}\small\item\em \-Main entry point of the microcontroller program. \end{DoxyCompactList}\item 
+\hyperlink{main_8c_afea150fcd685610cb9f7672fce361e53}{\-I\-S\-R} (\-I\-N\-T0\-\_\-vect)
+\begin{DoxyCompactList}\small\item\em \-I\-S\-R external interrupt \-I\-N\-T0. \end{DoxyCompactList}\item 
+\hyperlink{main_8c_ad878deb12efde50ce23b8afa0cd310d1}{\-I\-S\-R} (\-U\-S\-A\-R\-T\-\_\-\-U\-D\-R\-E\-\_\-vect)
+\begin{DoxyCompactList}\small\item\em \-I\-S\-R \-Data \-Register \-Empty \-Interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{main_8c_af37c74ade0b2fc34b463606de11649c3}{
+unsigned short \hyperlink{main_8c_af37c74ade0b2fc34b463606de11649c3}{actual\-Fan\-Speed\-Measured} = 0}
+\label{main_8c_af37c74ade0b2fc34b463606de11649c3}
+
+\begin{DoxyCompactList}\small\item\em \-Saves the timer value representing the fan speed. \end{DoxyCompactList}\item 
+\hypertarget{main_8c_a4a2d4d4eab68a555ce6fa09025dd9f3e}{
+unsigned short \hyperlink{main_8c_a4a2d4d4eab68a555ce6fa09025dd9f3e}{poti\-Value\-Measured} = 0}
+\label{main_8c_a4a2d4d4eab68a555ce6fa09025dd9f3e}
+
+\begin{DoxyCompactList}\small\item\em \-Saves the \-A\-D\-C value of the potentiometer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Main module. \-This file includes the main function. 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{main_8c_ab3166bd1ba3160d3bac85daddb12f947}{
+\index{main.\-c@{main.\-c}!init\-A\-D\-C@{init\-A\-D\-C}}
+\index{init\-A\-D\-C@{init\-A\-D\-C}!main.c@{main.\-c}}
+\subsubsection[{init\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}void init\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_ab3166bd1ba3160d3bac85daddb12f947}
+
+
+\-Initialize \-A\-D\-C. 
+
+\-Initializes the \-A\-D\-C and converts the voltage (from the potentiometer) to a value between 0 and 255.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_a05dcb7d6cd19ae3526e67f305ab099c7}{
+\index{main.\-c@{main.\-c}!init\-P\-W\-M2@{init\-P\-W\-M2}}
+\index{init\-P\-W\-M2@{init\-P\-W\-M2}!main.c@{main.\-c}}
+\subsubsection[{init\-P\-W\-M2}]{\setlength{\rightskip}{0pt plus 5cm}void init\-P\-W\-M2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_a05dcb7d6cd19ae3526e67f305ab099c7}
+
+
+\-Initialize timer2 for \-P\-W\-M. 
+
+\-Configures the \-Timer 2 to control the fan speed.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_a3ce63e603bd2c199e32b3205f8765e29}{
+\index{main.\-c@{main.\-c}!init\-R\-P\-M@{init\-R\-P\-M}}
+\index{init\-R\-P\-M@{init\-R\-P\-M}!main.c@{main.\-c}}
+\subsubsection[{init\-R\-P\-M}]{\setlength{\rightskip}{0pt plus 5cm}void init\-R\-P\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_a3ce63e603bd2c199e32b3205f8765e29}
+
+
+\-Initialize \-I\-N\-T0 for \-R\-P\-M measurements. 
+
+\-Configures the external interrupt \-I\-N\-T0 to measure the fan speed. \-It triggers on the falling edge.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_aeb10e95e8ade0a53d0aeac6f7751c631}{
+\index{main.\-c@{main.\-c}!init\-Timer1@{init\-Timer1}}
+\index{init\-Timer1@{init\-Timer1}!main.c@{main.\-c}}
+\subsubsection[{init\-Timer1}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Timer1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_aeb10e95e8ade0a53d0aeac6f7751c631}
+
+
+\-Initialize \-Timer 1 for \-R\-P\-M measurements. 
+
+\-Configures the timer 1 for \-R\-P\-M measurements. \-Normal mode and prescaler 64.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_a4b46e2e6b871d0b0f138e61760b10fa2}{
+\index{main.\-c@{main.\-c}!init\-U\-S\-A\-R\-T@{init\-U\-S\-A\-R\-T}}
+\index{init\-U\-S\-A\-R\-T@{init\-U\-S\-A\-R\-T}!main.c@{main.\-c}}
+\subsubsection[{init\-U\-S\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}void init\-U\-S\-A\-R\-T (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_a4b46e2e6b871d0b0f138e61760b10fa2}
+
+
+\-Initialize \-U\-S\-A\-R\-T interface. 
+
+\-Initializes \-Asynchron 8\-N1 \-U\-A\-R\-T interface.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_afea150fcd685610cb9f7672fce361e53}{
+\index{main.\-c@{main.\-c}!\-I\-S\-R@{\-I\-S\-R}}
+\index{\-I\-S\-R@{\-I\-S\-R}!main.c@{main.\-c}}
+\subsubsection[{\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{\-I\-N\-T0\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_afea150fcd685610cb9f7672fce361e53}
+
+
+\-I\-S\-R external interrupt \-I\-N\-T0. 
+
+\-When the external interrupt \-I\-N\-T0 occurs, the value gets saved to the variable actual\-Fan\-Speed\-Measured. \-Afterwards the \-Timer1 count register gets set to 0.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_ad878deb12efde50ce23b8afa0cd310d1}{
+\index{main.\-c@{main.\-c}!\-I\-S\-R@{\-I\-S\-R}}
+\index{\-I\-S\-R@{\-I\-S\-R}!main.c@{main.\-c}}
+\subsubsection[{\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{\-U\-S\-A\-R\-T\-\_\-\-U\-D\-R\-E\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_ad878deb12efde50ce23b8afa0cd310d1}
+
+
+\-I\-S\-R \-Data \-Register \-Empty \-Interrupt. 
+
+\-When the data register is empty, new data from the buffers gets loaded and sent out the \-U\-S\-A\-R\-T interface.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{
+\index{main.\-c@{main.\-c}!main@{main}}
+\index{main@{main}!main.c@{main.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+
+\-Main entry point of the microcontroller program. 
+
+\-Contains all init functions which get executed only once. \-Afterwards an infinite loop while(1) will be called for all periodic tasks.
+
+\begin{DoxyReturn}{\-Returns}
+int \-Return code of the main program. \-Codes other than zero signals an error. 
+\end{DoxyReturn}
+\hypertarget{main_8c_a63dd01341d3566ea779f7597d942a846}{
+\index{main.\-c@{main.\-c}!read\-A\-D\-C@{read\-A\-D\-C}}
+\index{read\-A\-D\-C@{read\-A\-D\-C}!main.c@{main.\-c}}
+\subsubsection[{read\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}void read\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8c_a63dd01341d3566ea779f7597d942a846}
+
+
+\-Read value from \-A\-D\-C. 
+
+\-Reads the value from the \-A\-D\-C and saves it to the variable poti\-Value\-Measured. \-The range of the value is between 0 and 255.
+
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}

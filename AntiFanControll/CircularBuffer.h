@@ -1,10 +1,3 @@
-/*
- * CircularBuffer.h
- *
- * Created: 25.11.2015 21:04:45
- *  Author: Stefan
- */ 
-
 #ifndef CIRCULARBUFFER_H_
 #define CIRCULARBUFFER_H_
 

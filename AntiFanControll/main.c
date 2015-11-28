@@ -30,7 +30,7 @@ void initTimer1();
 void initADC();
 void readADC();
 void initPWM2();
-void initUART();
+void initUSART();
 
 /**
 * @brief Saves the timer value representing the fan speed

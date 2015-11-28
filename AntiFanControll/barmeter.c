@@ -1,9 +1,10 @@
-/*
- * barmeter.c
- *
- * Created: 07.10.2015 14:30:06
- *  Author: Michael Mühlbacher
- */ 
+/**
+* @file barmeter.c
+* @brief Barmeter functions
+*
+* This module defines the functions for the barmeter.
+*
+*/
 
 #include <avr/io.h>
 #include "LCD.h"

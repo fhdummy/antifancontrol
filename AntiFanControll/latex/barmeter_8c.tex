@@ -1,0 +1,63 @@
+\hypertarget{barmeter_8c}{
+\section{barmeter.c \-File \-Reference}
+\label{barmeter_8c}\index{barmeter.\-c@{barmeter.\-c}}
+}
+
+
+\-Barmeter functions.  
+
+
+{\ttfamily \#include $<$avr/io.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-L\-C\-D.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{barmeter_8c_ac5edf8c99ae1e23ab4d23b7589fa8f20}{set\-Bar\-Meter} (unsigned int value)
+\begin{DoxyCompactList}\small\item\em \-Set bar meter. \end{DoxyCompactList}\item 
+void \hyperlink{barmeter_8c_a029009cd2febe40616d448493f9783ed}{init\-Bar\-Meter} (void)
+\begin{DoxyCompactList}\small\item\em \-Initialize bar meter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Barmeter functions. \-This module defines the functions for the barmeter. 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{barmeter_8c_a029009cd2febe40616d448493f9783ed}{
+\index{barmeter.\-c@{barmeter.\-c}!init\-Bar\-Meter@{init\-Bar\-Meter}}
+\index{init\-Bar\-Meter@{init\-Bar\-Meter}!barmeter.c@{barmeter.\-c}}
+\subsubsection[{init\-Bar\-Meter}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Bar\-Meter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{barmeter_8c_a029009cd2febe40616d448493f9783ed}
+
+
+\-Initialize bar meter. 
+
+\-Sets the ports to output and to 0. \begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{barmeter_8c_ac5edf8c99ae1e23ab4d23b7589fa8f20}{
+\index{barmeter.\-c@{barmeter.\-c}!set\-Bar\-Meter@{set\-Bar\-Meter}}
+\index{set\-Bar\-Meter@{set\-Bar\-Meter}!barmeter.c@{barmeter.\-c}}
+\subsubsection[{set\-Bar\-Meter}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Bar\-Meter (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{value}
+\end{DoxyParamCaption}
+)}}
+\label{barmeter_8c_ac5edf8c99ae1e23ab4d23b7589fa8f20}
+
+
+\-Set bar meter. 
+
+\-Set the bar meter according to the value, which originally comes from the \-A\-D\-C
+
+void \hyperlink{barmeter_8c_ac5edf8c99ae1e23ab4d23b7589fa8f20}{set\-Bar\-Meter(unsigned int value)} 
+\begin{DoxyParams}{\-Parameters}
+{\em value} & \-Value between 0 and 255 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+void 
+\end{DoxyReturn}

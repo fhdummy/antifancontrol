@@ -1,9 +1,11 @@
-/*
- * CircularBuffer.c
- *
- * Created: 25.11.2015 21:04:36
- *  Author: Stefan
- */ 
+/**
+* @file CircularBuffer.c
+* @brief CircularBuffer functions
+*
+* This module defines the functions for the circular buffer.
+*
+*/
+
 
 #include <avr/io.h>
 #include "CircularBuffer.h"
