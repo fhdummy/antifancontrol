@@ -106,30 +106,41 @@ int main(void)
 	initUART();		
 	sei();
 	
-	setCursorToHome();
-	writeToDisplay(":D");
-	
-	char rpmString[5];
+	char rpmString[4];
+	char timeString[5];
+	char dutyString[3];
 	
     while(1)
     {
+		OCR2 = potiValueMeasured;
+		int duty = (potiValueMeasured * 100) / 255;
 		setBarMeter(potiValueMeasured);
 		readADC();
 		
-		int rpm = (60000000UL/((unsigned long)16*(unsigned long)actualFanSpeedMeasured));
+		int rpm = 60000000UL / ((unsigned long)16 * (unsigned long)actualFanSpeedMeasured);
+		int time = 8 * (unsigned long)actualFanSpeedMeasured;
 		
-		sprintf(rpmString,"%5u", rpm);
+		/* Convert integers to strings */
+		sprintf(rpmString,"%4u", rpm);
+		sprintf(timeString,"%5u", time);
 		
-		sendUartString(rpmString);
-		sendUartString("\r\n");
-		
+		/* Print to display */
 		setCursorToHome();
-		writeIntToDisplay(rpm);	//Print RPM 
+		writeCharArray(rpmString, 4);
+		writeCharArray(" RPM", 4);
+		
+		setCursor2Line();
+		writeCharArray("Duty: ", 6);
+		sprintf(dutyString,"%3u", duty);
+		writeCharArray(dutyString, 3);
+		
+		
+		
 		//setCursor2Line();
 		//writeIntToDisplay((potiValueMeasured*100)/255);	//Print Duty
 		//setCursor2Line();
 		//writeIntToDisplay(8 * (unsigned long)actualFanSpeedMeasured);	//Print pulse time
-		OCR2 = potiValueMeasured;
+		
 		_delay_ms(10);
     }
 	

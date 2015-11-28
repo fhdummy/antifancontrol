@@ -16,6 +16,6 @@ extern unsigned char circularBuffer[CIRCULARBUFFERSIZE];
 extern int bufferFreeLength;
 
 void initCircularBuffer();
-int sendUartString(unsigned char *);
+int sendUartString(unsigned char *, int);
 
 #endif 

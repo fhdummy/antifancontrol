@@ -13,10 +13,8 @@ unsigned char *pWrite;
 unsigned char circularBuffer[CIRCULARBUFFERSIZE];
 int bufferFreeLength;
 
-int sendUartString(unsigned char *pData)
+int sendUartString(unsigned char *pData, int length)
 {
-	int length = strlen(pData);
-	
 	if(pWrite >= pRead)
 	{
 		bufferFreeLength = CIRCULARBUFFERSIZE - (int)pWrite + (int)pRead - 1;

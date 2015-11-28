@@ -104,7 +104,7 @@ void writeToDisplay(char* s)
 void writeIntToDisplay(int value)
 {
 	char tempString[15];
-	sprintf(tempString,"%15u", value);
+	sprintf(tempString,"%15u", value);	
 
 	writeCharArray(tempString, sizeof(tempString)/sizeof(tempString[0]));
 }
