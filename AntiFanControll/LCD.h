@@ -1,13 +1,9 @@
 /*
- * IncFile1.h
- *
- * Created: 02.06.2015 10:28:06
- *  Author: Marco
+ * Autor: Marco Gruber
  */ 
 
-
-#ifndef INCFILE1_H_
-#define INCFILE1_H_
+#ifndef LCD_H_
+#define LCD_H_
 
 void initDisplay();
 void toggleEnable();
@@ -21,7 +17,5 @@ void clearDisplay();
 void setCursorToHome();
 void shiftCursorRight();
 void setCursor2Line();
-void writeToDisplay(char*);
-void writeIntToDisplay(int);
 
-#endif /* INCFILE1_H_ */
+#endif /* LCD_H_ */

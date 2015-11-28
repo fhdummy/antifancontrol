@@ -40,8 +40,7 @@ C_SRCS +=  \
 ../barmeter.c \
 ../CircularBuffer.c \
 ../LCD.c \
-../main.c \
-../ringbuffer.c
+../main.c
 
 
 PREPROCESSING_SRCS += 
@@ -54,29 +53,25 @@ OBJS +=  \
 barmeter.o \
 CircularBuffer.o \
 LCD.o \
-main.o \
-ringbuffer.o
+main.o
 
 OBJS_AS_ARGS +=  \
 barmeter.o \
 CircularBuffer.o \
 LCD.o \
-main.o \
-ringbuffer.o
+main.o
 
 C_DEPS +=  \
 barmeter.d \
 CircularBuffer.d \
 LCD.d \
-main.d \
-ringbuffer.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
 barmeter.d \
 CircularBuffer.d \
 LCD.d \
-main.d \
-ringbuffer.d
+main.d
 
 OUTPUT_FILE_PATH +=AntiFanControll.elf
 
@@ -92,8 +87,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 

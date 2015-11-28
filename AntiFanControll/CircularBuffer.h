@@ -13,7 +13,6 @@
 extern unsigned char *pRead;
 extern unsigned char *pWrite;
 extern unsigned char circularBuffer[CIRCULARBUFFERSIZE];
-extern int bufferFreeLength;
 
 void initCircularBuffer();
 int sendUartString(unsigned char *, int);

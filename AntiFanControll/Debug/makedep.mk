@@ -10,5 +10,3 @@ LCD.c
 
 main.c
 
-ringbuffer.c
-
